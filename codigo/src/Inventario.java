@@ -6,9 +6,10 @@ public class Inventario {
 
 	private int quantDisponivel;
 
-	public void getDisponivel() {
-
-	}
+//	public int quantidadeDeItens() {
+//		this.quantDisponivel = this.produto.getQuant();
+//		return this.quantDisponivel - this.quantMin;
+//	}
 
 	public void addQuant() {
 
