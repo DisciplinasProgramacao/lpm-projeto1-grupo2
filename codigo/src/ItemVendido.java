@@ -10,9 +10,9 @@ public class ItemVendido {
 		this.quant= q;
 	}
 
-	public void getValorTotal() {
-		return quant*p.getValorTotal();
-
-	}
+//	public void getValorTotal() {
+//		return quant*p.getValorTotal();
+//
+//	}
 
 }
