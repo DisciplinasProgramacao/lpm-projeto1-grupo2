@@ -20,7 +20,7 @@ public class Produto {
 	 * retornada. Senão, a exceção é capturada e exibida ao usuário (ex.: margem de lucro
 	 * inválida).
 	 */
-	private Produto(String descricao, int qtdInicial, double precoCusto, double margemLucro){
+	public Produto(String descricao, int qtdInicial, double precoCusto, double margemLucro){
 
 		try {
 			validarCaracteresProduto(descricao);
