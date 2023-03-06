@@ -23,9 +23,8 @@ public class Produto {
 	 * retornada. Senão, a exceção é capturada e exibida ao usuário (ex.: margem de lucro
 	 * inválida).
 	 */
-	public Produto(String descricao, int qtdInicial, double precoCusto, double margemLucro){
+	public Produto(String descricao, int qtdInicial, double precoCusto, double margemLucro) throws IllegalArgumentException {
 
-		try {
 			validarCaracteresProduto(descricao);
 			validaMargemLucro(margemLucro);
 
@@ -50,11 +49,6 @@ public class Produto {
 					(margemLucro * 100), this.getValorImposto(), valorVenda);
 			System.out.println("----------------------");
 
-		} catch (Exception e) {
-			String errorMsg = e.getMessage();
-			System.out.printf("\nErro ao cadastrar o produto '%s': %s\n", descricao, errorMsg);
-			System.out.println("----------------------");
-		}
 
 	}
 
@@ -62,7 +56,7 @@ public class Produto {
 	 * Factory method responsável por criar um novo produto, de forma que
 	 * o método de criação tenha um nome mais amigável.
 	 */
-	static Produto registrarProduto(String descricao, int qtdInicial, double precoCusto, double margemLucro){
+	public static Produto registrarProduto(String descricao, int qtdInicial, double precoCusto, double margemLucro){
 		return new Produto(descricao, qtdInicial, precoCusto, margemLucro);
 	}
 

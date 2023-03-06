@@ -2,9 +2,9 @@ import java.util.List;
 
 public class Estoque {
 
-	private List<Inventario> inventario;
-	
-	public void relatorioProdutoEmFalta() {
-	}
+//	private List<Inventario> inventario;
+//
+//	public void relatorioProdutoEmFalta() {
+//	}
 
 }

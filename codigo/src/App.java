@@ -1,5 +1,8 @@
 public class App {
     public static void main(String[] args) {
+
+    try {
+
         Produto p1 = Produto.registrarProduto("Bo", 89, 10, 0.5);
         Produto p2 = Produto.registrarProduto("Arroz 1kg", 10,11, 0.59);
         Produto p3 = Produto.registrarProduto("Feijão 1kg", 12,15, 0.6);
@@ -8,6 +11,11 @@ public class App {
 
         System.out.println(p2.getCustoTotal());
 
-
+    } catch (Exception e) {
+        String errorMsg = e.getMessage();
+        System.out.printf("\nErro ao cadastrar o produto: %s\n", errorMsg);
+        System.out.println("----------------------");
     }
+    }
+
 }
