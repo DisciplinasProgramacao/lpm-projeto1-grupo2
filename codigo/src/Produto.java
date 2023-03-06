@@ -11,7 +11,10 @@ public class Produto {
 	private double margemLucro;
 	private int qtdInicial;
 	private static double IMPOSTO = 0.18;
-
+	
+	
+	public Produto() {
+	}
 	/*
 	 * Construtor de Produto, que é chamado pelo factory method registrarProduto()
 	 * São feitas as validações do tamanho de caracteres da descrição, da margem de lucro
@@ -54,6 +57,7 @@ public class Produto {
 		}
 
 	}
+
 	/*
 	 * Factory method responsável por criar um novo produto, de forma que
 	 * o método de criação tenha um nome mais amigável.
