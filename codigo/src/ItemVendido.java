@@ -2,17 +2,17 @@ public class ItemVendido {
 
 	private int quant;
 	private Produto p;
+	private double TotalItem;
 
-	public int getQuant (){
-		return this.quant;
+
+	public double getValorTotal() {
+		return 1;
+
 	}
-	public void setQuant (int q){
-		this.quant= q;
+	public void addItem(Produto produto, int quant){
+		
 	}
-
-//	public void getValorTotal() {
-//		return quant*p.getValorTotal();
-//
-//	}
-
+	public void removeItem() {
+		
+	}
 }
