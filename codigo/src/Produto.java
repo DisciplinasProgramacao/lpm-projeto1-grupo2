@@ -9,9 +9,9 @@ public class Produto {
 	private double precoCusto;
 	private double valorVenda;
 	private double margemLucro;
-	private int qtdInicial;
 	private static double IMPOSTO = 0.18;
-	
+	private int quantMin;
+	private int quantDisp;
 	
 	public Produto() {
 	}
@@ -33,7 +33,7 @@ public class Produto {
 			Produto.ultimoCodigo = this.codigo;
 
 			this.descricao = descricao;
-			this.qtdInicial = qtdInicial;
+			this.quantDisp = qtdInicial;
 			this.precoCusto = precoCusto;
 			this.margemLucro = margemLucro;
 			this.valorVenda = calcularPrecoVenda(precoCusto, margemLucro);
@@ -105,27 +105,52 @@ public class Produto {
 	}
 
 	/*
-	 * Método que retorna a quantidade inicial de produtos cadastrados
-	 */
-	public int getQuantidadeInicial() {
-		return qtdInicial;
-	}
-
-	/*
 	 * Método que calcula o custo total, a partir da quantidade
-	 * de itens e do valor de custo. A consulta é feita diretamente pelo estoque
-	 *
-	 * TODO
-	 * Consultar a quantidade pelo estoque ao invés da qtd. inicial.
+	 * de itens e do valor de custo.
 	 */
 	public double getCustoTotal(){
-		double custoTotal = this.qtdInicial * this.precoCusto;
+		double custoTotal = this.quantDisp * this.precoCusto;
 
 		return custoTotal;
 
-
 	}
 
+	public double getValorVenda(){
+		return this.valorVenda;
+	}
+
+	//Método para verificar se produto está dispónivel
+	public boolean estaDisponivel() {
+		return quantDisp > 0;
+	}
+
+	//Método para adicionar quantidade ao produto
+	public void addQuantidade(int quant) {
+		this.quantDisp += quant;
+	}
+
+	//Método para diminuir quantidade do produto
+	public void abaterQuantidade(int quant) {
+		if (quant <= quantDisp) {
+			this.quantDisp -= quant;
+		} else {
+			System.out.println("Quantidade a ser abatida maior que quantidade disponível: valor inválido");
+		}
+
+	}
+	//Método que retorna a quantidade de produtos disponíveis
+	public int getQuantDisponivel() {
+		return this.quantDisp;
+	}
+
+//	//Método que verifica se produto está em falta com base na quantidade mínima especificada
+//	// e imprime relatório
+//	public String relatorioProdutoEmFalta() {
+//		if (quantDisp < quantMin) {
+//			return "Produto em falta: " + produto.getDescricao() + "\n";
+//		}
+//		return "Produto não está em falta";
+//	}
 
 
 }

@@ -1,18 +1,26 @@
 public class ItemVendido {
 
 	private int quant;
-	private Produto p;
-	private double TotalItem;
+	private Produto produto;
+	private double valorTotalItem;
 
-
+	public ItemVendido(Produto produto, int quant){
+		this.produto = produto;
+		this.quant = quant;
+	}
 	public double getValorTotal() {
-		return 1;
+		return this.quant * this.produto.getValorVenda();
 
 	}
-	public void addItem(Produto produto, int quant){
-		
+	//Retorna o produto relacionado ao ItemVendido em questão
+	public Produto getProdutoItem(){
+		return this.produto;
 	}
-	public void removeItem() {
-		
+	public int getQuantItem(){
+		return this.quant;
+	}
+	//Adiciona uma quantidade de itens referente a um ItemVendido de uma Venda
+	public void addQuantItem(int quant){
+		this.quant += quant;
 	}
 }
