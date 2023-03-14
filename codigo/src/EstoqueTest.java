@@ -21,7 +21,7 @@ public class EstoqueTest {
 //    Assertions.assertFalse(estoque.estaDisponivel());
 //  }
 
-    //Teste para verificar a quantidade total de itens no estoque
+    //Teste para verificar a quantidade total produtos distintos no estoque
     @Test
     public void testQtdProdutosEstoque() {
 
