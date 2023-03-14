@@ -23,9 +23,10 @@ public class Estoque {
     //Inclui uma lista de Produtos no Estoque, verificando se não está sendo ultrapassado o valor máximo
     //definido no momento da criação do Estoque
     public void incluiProdutos (ArrayList<Produto> produtos){
+        int capacidadeAtualEstoque = this.tamEstoque - this.produtosEstoque.size();
         //Se a quantidade de Produtos na lista for maior que o espaço disponível no estoque, a operação é abortada
-        if (this.produtosEstoque.size() == this.tamEstoque || produtos.size() > (this.tamEstoque - this.produtosEstoque.size())){
-            System.out.println("Estoque cheio.");
+        if (this.produtosEstoque.size() == this.tamEstoque || produtos.size() > capacidadeAtualEstoque){
+            System.out.printf("Estoque cheio. A lista tem %d produtos e há %d vaga(s) disponíveis no estoque.", produtos.size(), capacidadeAtualEstoque);
         } else {
         //Caso contrário, inclui os Produtos no Estoque
             for (int i = 0; i < produtos.size(); i++) {

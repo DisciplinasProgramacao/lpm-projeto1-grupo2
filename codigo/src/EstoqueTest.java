@@ -21,6 +21,25 @@ public class EstoqueTest {
 //    Assertions.assertFalse(estoque.estaDisponivel());
 //  }
 
+    @Test
+    public void testTamanhoEstoque(){
+        Estoque estoque = new Estoque(2); //passando qtd. de itens que o estoque vai ter
+        Produto p1 = new Produto("Cachaça", 5, 10.2, 0.6);
+        Produto p2 = new Produto("Torradas", 2, 3.4, 0.5);
+        Produto p3 = new Produto("Refrigerante", 5, 5, 0.5);
+
+        ArrayList<Produto> produtos = new ArrayList<>();
+        Collections.addAll(produtos, p1, p2, p3);
+        estoque.incluiProdutos(produtos);
+
+        //Espera-se receber o valor 0, já que a lista de
+        //produtos é maior que o tamanho máximo do estoque,
+
+        int qtdEstoque = estoque.getQtdProdutosEstoque();
+
+        Assertions.assertEquals(0, qtdEstoque);
+        System.out.printf("\nQuantidade de produtos no estoque: %d", qtdEstoque);
+    }
     //Teste para verificar a quantidade total produtos distintos no estoque
     @Test
     public void testQtdProdutosEstoque() {
@@ -36,7 +55,7 @@ public class EstoqueTest {
 
         int qtdEstoque = estoque.getQtdProdutosEstoque();
         Assertions.assertEquals(3, qtdEstoque);
-        System.out.printf("Quantidade de produtos no estoque: %d", qtdEstoque);
+        System.out.printf("\nQuantidade de produtos no estoque: %d", qtdEstoque);
     }
     
     //Teste para verificar a quantidade total de itens no estoque
@@ -56,7 +75,7 @@ public class EstoqueTest {
 
         //Espera-se receber o valor 30 pois é a soma da quantidade inicial dos Produtos
         Assertions.assertEquals(30, qtdTotalItensEstoque);
-        System.out.printf("Quantidade de itens no estoque: %d", qtdTotalItensEstoque);
+        System.out.printf("\nQuantidade de itens no estoque: %d", qtdTotalItensEstoque);
     }
 
 //    @Test
