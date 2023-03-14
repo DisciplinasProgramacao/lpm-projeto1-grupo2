@@ -157,12 +157,12 @@ public class Produto {
 
 //	//Método que verifica se produto está em falta com base na quantidade mínima especificada
 //	// e imprime relatório
-//	public String relatorioProdutoEmFalta() {
-//		if (quantDisp < quantMin) {
-//			return "Produto em falta: " + produto.getDescricao() + "\n";
-//		}
-//		return "Produto não está em falta";
-//	}
+	public String relatorioProdutoEmFalta() {
+		if (quantDisp < quantMin) {
+			return "Produto em falta: " + this.getDescricao() + "\n";
+		}
+		return "Produto não está em falta";
+	}
 
 
 }
