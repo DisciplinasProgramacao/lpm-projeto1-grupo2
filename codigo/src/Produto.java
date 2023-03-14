@@ -39,7 +39,7 @@ public class Produto {
 			this.margemLucro = margemLucro;
 			this.valorVenda = calcularPrecoVenda(precoCusto, margemLucro);
 
-			System.out.printf("O produto '%s' foi registrado com o código %d. Para vendê-lo, crie um estoque e o adicione a esse estoque." +
+			System.out.printf("\nO produto '%s' foi registrado com o código %d. Para vendê-lo, crie um estoque e o adicione a esse estoque." +
 					"\n- Custo: R$ %.2f" +
 					"\n- Qtd. inicial: %d" +
 					"\n- Custo total: R$ %.2f" +
@@ -135,7 +135,7 @@ public class Produto {
 		if (quant <= quantDisp) {
 			this.quantDisp -= quant;
 		} else {
-			System.out.println("Quantidade a ser abatida maior que quantidade disponível: valor inválido");
+			System.out.println("\nQuantidade a ser abatida maior que quantidade disponível: valor inválido");
 		}
 
 	}
@@ -144,9 +144,15 @@ public class Produto {
 		return this.quantDisp;
 	}
 
+
 	//Método que seta se um produto está ou não no estoque, atualizando para o estado inverso
 	public void updateStatusEstoque(){
 		this.estaNoEstoque = !(this.estaNoEstoque);
+	}
+
+	//Método que retorna se o produto está ou não no estoque
+	public boolean getStatusEstoque(){
+		return this.estaNoEstoque;
 	}
 
 //	//Método que verifica se produto está em falta com base na quantidade mínima especificada

@@ -18,26 +18,34 @@ public class Venda {
 		return this.valorTotalVenda;
     }
 
+	public ArrayList<ItemVendido> getItensVendidos(){
+		return this.itensVendidos;
+	}
+
 	public void addItemVenda(Produto produto, int quant){
 		//Verifica se o produto está disponível antes de incluir na venda
-		if (produto.estaDisponivel()) {
-			//Se o produto estiver disponível, verifica se o produto já foi adicionado à venda
-			if (itensVendidos.contains(produto)) {
-				//Se o produto já estiver adicionado à venda, abate-se sua quantidade
-				// em seu estoque e se atualiza a quantidade de itens desse produto na venda
-				int indiceProduto = itensVendidos.indexOf(produto);
-				this.itensVendidos.get(indiceProduto).getProdutoItem().abaterQuantidade(quant);
-				this.itensVendidos.get(indiceProduto).addQuantItem(quant);
+		if (produto.getStatusEstoque()) {
+			if (produto.estaDisponivel()) {
+				//Se o produto estiver disponível, verifica se o produto já foi adicionado à venda
+				if (itensVendidos.contains(produto)) {
+					//Se o produto já estiver adicionado à venda, abate-se sua quantidade
+					// em seu estoque e se atualiza a quantidade de itens desse produto na venda
+					int indiceProduto = itensVendidos.indexOf(produto);
+					this.itensVendidos.get(indiceProduto).getProdutoItem().abaterQuantidade(quant);
+					this.itensVendidos.get(indiceProduto).addQuantItem(quant);
 
+				} else {
+					//Se o produto não estiver na venda, cria-se um novo ItemVendido
+					ItemVendido item = new ItemVendido(produto, quant);
+					this.itensVendidos.add(item);
+
+					produto.abaterQuantidade(quant);
+				}
 			} else {
-				//Se o produto não estiver na venda, cria-se um novo ItemVendido
-				ItemVendido item = new ItemVendido(produto, quant);
-				this.itensVendidos.add(item);
-
-				produto.abaterQuantidade(quant);
+				System.out.println("Produto fora de estoque!");
 			}
 		} else {
-			System.out.println("Produto fora de estoque!");
+				System.out.println("O produto " + produto.getDescricao() + " não está associado ao estoque. Faça isso para incluí-lo na venda.");
 		}
 
 	}

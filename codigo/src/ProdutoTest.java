@@ -3,6 +3,8 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Nested;
 import org.junit.jupiter.api.Test;
 
+import java.util.ArrayList;
+
 class ProdutoTest {
 	private Produto produto;
 
@@ -28,7 +30,26 @@ class ProdutoTest {
 			Assertions.assertEquals(50.0, produto.getCustoTotal());
 		}
 
+		@Test
+		void testAddProdutoVenda(){
+			Estoque estoque = new Estoque(4);
+			estoque.incluiProduto(produto);
+
+			//Produto não associado ao estoque não deve conseguir ser vendido.
+			Produto p2 = Produto.registrarProduto("Detergente", 3, 1.20, 0.4);
+
+			Venda venda = new Venda();
+			venda.addItemVenda(produto, 3);
+			venda.addItemVenda(p2, 2);
+
+			ArrayList<ItemVendido> itensVenda = venda.getItensVendidos();
+
+			//O produto p2 não deve estar na venda, pois não foi associado ao estoque
+			Assertions.assertFalse(itensVenda.contains(p2));
+
+		}
 	}
+
 
 	@Nested
 	class ExceptionTests {

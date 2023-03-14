@@ -1,8 +1,9 @@
 import java.util.ArrayList;
 
 public class Estoque {
-    int tamEstoque;
-    ArrayList<Produto> produtosEstoque;
+    private int tamEstoque;
+    private ArrayList<Produto> produtosEstoque;
+
 
     public Estoque (int tamEstoque){
         this.produtosEstoque = new ArrayList<>();
@@ -12,11 +13,15 @@ public class Estoque {
     //Inclui um único Produto no Estoque, verificando se não está sendo ultrapassado o valor máximo
     //definido no momento da criação do Estoque
     public void incluiProduto (Produto p){
+
+
         if (this.produtosEstoque.size() == this.tamEstoque){
-            System.out.println("Estoque cheio.");
+            System.out.println("\nEstoque cheio.");
         } else {
             this.produtosEstoque.add(p);
             p.updateStatusEstoque();
+            int capacidadeAtualEstoque = this.tamEstoque - this.produtosEstoque.size();
+            System.out.printf("\nO produto %s foi associado ao estoque. Espaço disponível no estoque: %d", p.getDescricao(), capacidadeAtualEstoque);
         }
     }
 
@@ -26,12 +31,13 @@ public class Estoque {
         int capacidadeAtualEstoque = this.tamEstoque - this.produtosEstoque.size();
         //Se a quantidade de Produtos na lista for maior que o espaço disponível no estoque, a operação é abortada
         if (this.produtosEstoque.size() == this.tamEstoque || produtos.size() > capacidadeAtualEstoque){
-            System.out.printf("Estoque cheio. A lista tem %d produtos e há %d vaga(s) disponíveis no estoque.", produtos.size(), capacidadeAtualEstoque);
+            System.out.printf("\nEstoque cheio. A lista tem %d produtos e há %d vaga(s) disponíveis no estoque.", produtos.size(), capacidadeAtualEstoque);
         } else {
         //Caso contrário, inclui os Produtos no Estoque
             for (int i = 0; i < produtos.size(); i++) {
                 produtos.get(i).updateStatusEstoque();
                 this.incluiProduto(produtos.get(i));
+                System.out.printf("\nO produto %s foi associado ao estoque. Espaço disponível: %d", produtos.get(i).getDescricao(), capacidadeAtualEstoque);
             }
         }
 
