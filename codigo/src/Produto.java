@@ -12,6 +12,7 @@ public class Produto {
 	private static double IMPOSTO = 0.18;
 	private int quantMin;
 	private int quantDisp;
+	private boolean estaNoEstoque;
 	
 	public Produto() {
 	}
@@ -141,6 +142,11 @@ public class Produto {
 	//Método que retorna a quantidade de produtos disponíveis
 	public int getQuantDisponivel() {
 		return this.quantDisp;
+	}
+
+	//Método que seta se um produto está ou não no estoque, atualizando para o estado inverso
+	public void updateStatusEstoque(){
+		this.estaNoEstoque = !(this.estaNoEstoque);
 	}
 
 //	//Método que verifica se produto está em falta com base na quantidade mínima especificada

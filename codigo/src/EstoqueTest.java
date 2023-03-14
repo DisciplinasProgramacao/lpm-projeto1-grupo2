@@ -21,28 +21,11 @@ public class EstoqueTest {
 //    Assertions.assertFalse(estoque.estaDisponivel());
 //  }
 
-    //Teste para verificar se a quantidade de produtos distintos no estoque está correta
-    @Test
-    public void testQtdProdutosEstoque() {
-
-        Estoque2 estoque = new Estoque2(3); //passando qtd. de itens que o estoque vai ter
-        Produto p1 = new Produto("Cachaça", 0, 10.2, 0.6);
-        Produto p2 = new Produto("Torradas", 10, 3.4, 0.5);
-        Produto p3 = new Produto("Refrigerante", 5, 5, 0.5);
-
-        ArrayList<Produto> produtos = new ArrayList<>();
-        Collections.addAll(produtos, p1, p2, p3);
-        estoque.incluiProdutos(produtos);
-
-        Assertions.assertEquals(3, estoque.getQtdProdutosEstoque());
-
-    }
-
     //Teste para verificar a quantidade total de itens no estoque
     @Test
     public void testQtdProdutosEstoque() {
 
-        Estoque2 estoque = new Estoque2(3); //passando qtd. de itens que o estoque vai ter
+        Estoque estoque = new Estoque(3); //passando qtd. de itens que o estoque vai ter
         Produto p1 = new Produto("Cachaça", 0, 10.2, 0.6);
         Produto p2 = new Produto("Torradas", 10, 3.4, 0.5);
         Produto p3 = new Produto("Refrigerante", 5, 5, 0.5);
@@ -51,20 +34,20 @@ public class EstoqueTest {
         Collections.addAll(produtos, p1, p2, p3);
         estoque.incluiProdutos(produtos);
 
-
-        Assertions.assertEquals(3, estoque.getQtdProdutosEstoque());
-
+        int qtdEstoque = estoque.getQtdProdutosEstoque();
+        Assertions.assertEquals(3, qtdEstoque);
+        System.out.printf("Quantidade de produtos no estoque: %d", qtdEstoque);
     }
 
-    @Test
-    public void testRelatorioProdutoEmFalta() {
-        Produto p1 = new Produto("Espumante", 0, 5, 5);
-        Estoque estoque = new Estoque(p1, 7, 5);
-        estoque.addQuantidade(p1, 8);
-        estoque.abaterQuantidade(p1, 5);
-        Assertions.assertEquals("Produto em falta: Espumante\n", estoque.relatorioProdutoEmFalta());
-
-    }
+//    @Test
+//    public void testRelatorioProdutoEmFalta() {
+//        Produto p1 = new Produto("Espumante", 0, 5, 5);
+//        Estoque estoque = new Estoque(p1, 7, 5);
+//        estoque.addQuantidade(p1, 8);
+//        estoque.abaterQuantidade(p1, 5);
+//        Assertions.assertEquals("Produto em falta: Espumante\n", estoque.relatorioProdutoEmFalta());
+//
+//    }
 
 
 //  //Teste para verificar se a quantidade adicionada ao produto está certa
