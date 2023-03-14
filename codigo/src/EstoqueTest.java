@@ -53,7 +53,14 @@ public class EstoqueTest {
     Assertions.assertEquals(2, estoque.getQuantDisponivel());
 
   }
-
+   
+   @Test
+   public void testGetDisponivel(){
+      Produto p1 = new Produto("Cachaça", 0, 10.2,0.6);
+      Estoque estoque = new Estoque(p1, 5, 10);
+      Assertions.assertEquals(10, estoque.getQuantDisponivel());
+   }
+      
   @Test
   public void testRelatorioProdutoEmFalta() {
     Produto p1 = new Produto("Espumante", 0,5,5);
