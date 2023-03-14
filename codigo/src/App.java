@@ -6,7 +6,7 @@ public class App {
         int op;
  
         Estoque est = new Estoque(10);
-        Produto p = new Produto("uiui", 1, 10, 2);
+        
 
         do {
             System.out.println("----- Menu -----");
@@ -20,24 +20,30 @@ public class App {
             System.out.print("Digite uma opção: ");
             op = sc.nextInt();
             switch (op) {
-                case 1:     
-                est.incluiProduto(null);
+                case 1:
+                System.out.println("Digite o nome, o preço, a quantidade e a quantidade mínima do produto:");
+                String nome = sc.next();
+                double preco = sc.nextDouble();
+                int quantidade = sc.nextInt();
+                int quantidadeMinima = sc.nextInt();
+                Produto p = new Produto(nome, quantidade, preco, quantidadeMinima);    
+                est.incluiProduto(p);
                     break;
                 case 2:
                 System.out.println("Digite a quantidade a se adicionar ao produto");
                 int quant = sc.nextInt();
-                p.addQuantidade(quant); 
+                //p.addQuantidade(quant); 
                     break;
                 case 3:
                 System.out.println("Digite a quantidade a se retirar do produto");
                 quant = sc.nextInt();
-                p.abaterQuantidade(quant); 
+                //p.abaterQuantidade(quant); 
                     break;
                 case 4:
                 est.getTotalItensEstoque();                    
                     break;
                 case 5:
-                p.relatorioProdutoEmFalta();
+                //p.relatorioProdutoEmFalta();
                     break;
                 case 6:
                 // N ACHEI O METODO
