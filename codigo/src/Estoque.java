@@ -35,11 +35,21 @@ public class Estoque {
         }
 
     }
+    //Retorna a quantidade de produtos no estoque
     public int getQtdProdutosEstoque() {
-       return this.produtosEstoque.size();
+        return this.produtosEstoque.size();
     }
 
+    //Retorna a quantidade total de itens no estoque, a partir da quantidade de cada um dos Produtos
+    public int getTotalItensEstoque() {
+        int totalItensEstoque = 0;
 
+        for (int i = 0; i < this.produtosEstoque.size(); i++){
+            totalItensEstoque += produtosEstoque.get(i).getQuantDisponivel();
+        }
+
+        return totalItensEstoque;
+    }
 
 }
 
