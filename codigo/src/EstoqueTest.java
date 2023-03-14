@@ -38,6 +38,26 @@ public class EstoqueTest {
         Assertions.assertEquals(3, qtdEstoque);
         System.out.printf("Quantidade de produtos no estoque: %d", qtdEstoque);
     }
+    
+    //Teste para verificar a quantidade total de itens no estoque
+    @Test
+    public void testGetTotalItensEstoque() {
+
+        Estoque estoque = new Estoque(3); //passando qtd. de itens que o estoque vai ter
+        Produto p1 = new Produto("Cachaça", 5, 10.2, 0.6);
+        Produto p2 = new Produto("Torradas", 15, 3.4, 0.5);
+        Produto p3 = new Produto("Refrigerante", 10, 5, 0.5);
+
+        ArrayList<Produto> produtos = new ArrayList<>();
+        Collections.addAll(produtos, p1, p2, p3);
+        estoque.incluiProdutos(produtos);
+
+        int qtdTotalItensEstoque = estoque.getTotalItensEstoque();
+
+        //Espera-se receber o valor 30 pois é a soma da quantidade inicial dos Produtos
+        Assertions.assertEquals(30, qtdTotalItensEstoque);
+        System.out.printf("Quantidade de itens no estoque: %d", qtdTotalItensEstoque);
+    }
 
 //    @Test
 //    public void testRelatorioProdutoEmFalta() {
