@@ -6,14 +6,16 @@ public class Venda {
 	private double valorTotalVenda;
 
 	public Venda(){
-		itensVendidos = new ArrayList<>();
+		this.itensVendidos = new ArrayList<>();
 	}
 	
-    public void getValorVenda(){
+    public double getValorVenda(){
+
     	for(ItemVendido item: itensVendidos) {
-    		valorTotalVenda += item.getValorTotal();    	}
+    		this.valorTotalVenda += item.getValorTotal();}
         System.out.printf("Valor total da venda: " + valorTotalVenda);
 
+		return this.valorTotalVenda;
     }
 
 	public void addItemVenda(Produto produto, int quant){
