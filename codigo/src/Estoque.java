@@ -57,6 +57,26 @@ public class Estoque {
 
         return totalItensEstoque;
     }
+    public void adicionarQuantProduto(String descricao, int quant) {
+
+        for (Produto produto : produtosEstoque) {
+            if (produto.getDescricao().equals(descricao)) {
+                produto.addQuantidade(quant);
+
+            }
+        }
+
+}
+public void retirarQuantProduto(String descricao, int quant) {
+
+    for (Produto produto : produtosEstoque) {
+        if (produto.getDescricao().equals(descricao)) {
+            produto.abaterQuantidade(quant);
+  
+        }
+    }
+
+}
 
 }
 

@@ -21,23 +21,28 @@ public class App {
             op = sc.nextInt();
             switch (op) {
                 case 1:
-                System.out.println("Digite o nome, o preço, a quantidade e a quantidade mínima do produto:");
-                String nome = sc.next();
-                double preco = sc.nextDouble();
-                int quantidade = sc.nextInt();
-                int quantidadeMinima = sc.nextInt();
-                Produto p = new Produto(nome, quantidade, preco, quantidadeMinima);    
+                System.out.println("Digite a descrição, a quantidade inicial, o preço de custo e a margem de lucro do produto:");
+                String descricao = sc.next();
+                double quantidadeInicial = sc.nextDouble();
+                int preco = sc.nextInt();
+                int margemLucro = sc.nextInt();
+                Produto p = new Produto(descricao, quantidadeInicial, preco, margemLucro);    
                 est.incluiProduto(p);
                     break;
                 case 2:
+                System.out.println("Digite a descrição do produto desejado");
+                descricao = sc.next(descricao);
                 System.out.println("Digite a quantidade a se adicionar ao produto");
                 int quant = sc.nextInt();
-                //p.addQuantidade(quant); 
+                est.adicionarQuantProduto(descricao, quant);
                     break;
                 case 3:
-                System.out.println("Digite a quantidade a se retirar do produto");
-                quant = sc.nextInt();
-                //p.abaterQuantidade(quant); 
+                System.out.println("Digite a descrição do produto:");
+                    descricao = sc.next();
+                    System.out.println("Digite a quantidade a se retirar do produto");
+                    quant = sc.nextInt();
+                    est.retirarQuantProduto(descricao, quant);
+                    
                     break;
                 case 4:
                 est.getTotalItensEstoque();                    
