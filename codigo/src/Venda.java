@@ -1,5 +1,4 @@
 import java.util.ArrayList;
-import java.util.List;
 
 public class Venda {
 	ArrayList<ItemVendido> itensVendidos;
@@ -27,7 +26,8 @@ public class Venda {
 		if (produto.getStatusEstoque()) {
 			if (produto.estaDisponivel()) {
 				//Se o produto estiver disponível, verifica se o produto já foi adicionado à venda
-				if (itensVendidos.contains(produto)) {
+
+				if (this.itensVendidos.contains(produto)) {
 					//Se o produto já estiver adicionado à venda, abate-se sua quantidade
 					// em seu estoque e se atualiza a quantidade de itens desse produto na venda
 					int indiceProduto = itensVendidos.indexOf(produto);

@@ -77,6 +77,11 @@ public void retirarQuantProduto(String descricao, int quant) {
     }
 
 }
+    public void relatorioTodosProdutosEmFalta() {
+        for (Produto p : produtosEstoque) {
+            p.relatorioProdutoEmFalta();
+        }
+    }
 
 }
 

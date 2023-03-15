@@ -4,7 +4,7 @@ public class App {
         Scanner sc = new Scanner(System.in);
 
         int op;
- 
+
         Estoque est = new Estoque(10);
         
 
@@ -21,17 +21,17 @@ public class App {
             op = sc.nextInt();
             switch (op) {
                 case 1:
-                System.out.println("Digite a descrição, a quantidade inicial, o preço de custo e a margem de lucro do produto:");
+                System.out.println("Digite a descrição, a quantidade inicial, o preço de custo e a margem de lucro do produto (em decimal):");
                 String descricao = sc.next();
-                double quantidadeInicial = sc.nextDouble();
-                int preco = sc.nextInt();
-                int margemLucro = sc.nextInt();
-                Produto p = new Produto(descricao, quantidadeInicial, preco, margemLucro);    
+                int quantidadeInicial = sc.nextInt();
+                double preco = sc.nextInt();
+                double margemLucro = sc.nextDouble();
+                Produto p = new Produto(descricao, quantidadeInicial, preco, margemLucro);
                 est.incluiProduto(p);
                     break;
                 case 2:
                 System.out.println("Digite a descrição do produto desejado");
-                descricao = sc.next(descricao);
+                descricao = sc.next();
                 System.out.println("Digite a quantidade a se adicionar ao produto");
                 int quant = sc.nextInt();
                 est.adicionarQuantProduto(descricao, quant);
@@ -48,7 +48,7 @@ public class App {
                 est.getTotalItensEstoque();                    
                     break;
                 case 5:
-                //p.relatorioProdutoEmFalta();
+                est.relatorioTodosProdutosEmFalta();
                     break;
                 case 6:
                 // N ACHEI O METODO

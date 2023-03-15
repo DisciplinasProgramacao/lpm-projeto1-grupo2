@@ -39,7 +39,7 @@ public class Produto {
 			this.margemLucro = margemLucro;
 			this.valorVenda = calcularPrecoVenda(precoCusto, margemLucro);
 
-			System.out.printf("\nO produto '%s' foi registrado com o código %d. Para vendê-lo, crie um estoque e o adicione a esse estoque." +
+			System.out.printf("\nO produto '%s' foi registrado com o código %d." +
 					"\n- Custo: R$ %.2f" +
 					"\n- Qtd. inicial: %d" +
 					"\n- Custo total: R$ %.2f" +
