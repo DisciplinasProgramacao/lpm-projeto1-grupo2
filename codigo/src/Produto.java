@@ -106,6 +106,13 @@ public class Produto {
 	}
 
 	/*
+	 * Método que retorna o código do produto
+	 */
+	public int getCodigo() {
+		return this.codigo;
+	}
+
+	/*
 	 * Método que calcula o custo total, a partir da quantidade
 	 * de itens e do valor de custo.
 	 */
