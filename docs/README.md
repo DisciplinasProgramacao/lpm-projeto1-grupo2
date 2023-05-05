@@ -5,5 +5,5 @@ A documentação do projeto é composta pelos seguintes itens:
  - [Plano de testes (quando aplicável)](/docs/planoDeTestes.md)
  - [Backlog do projeto (requisitos implementados)](/docs/backlog.md)
  - [Instruções para uso](/docs/instrucoes.md)
- - [Link para o vídeo de apresentação (edite este mesmo md para colocar sua URL)](http://insira.aqui.sua.URL)
+ - [Link para o vídeo de apresentação](https://youtu.be/pKYofId8574)
 
